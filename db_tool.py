@@ -1,3 +1,4 @@
+
 from fastmcp import FastMCP
 import psycopg2
 from psycopg2.extras import RealDictCursor
@@ -26,4 +27,5 @@ def run_query(query: str) -> list:
     conn.close()
     return result
 
-app = mcp.app  # 👈 Expose for Render
+# ✅ Correct way to expose FastAPI app for Render
+app = mcp.build()
